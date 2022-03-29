@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('genre');
             $table->string('pays');
             $table->string('role');
-            $table->foreignId('equipe_id')->constrained();
+            $table->foreignId('club_id')->constrained();
             $table->foreignId('photo_id')->constrained();
             $table->timestamps();
         });
