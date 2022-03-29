@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Player;
 use App\Http\Requests\StorePlayerRequest;
 use App\Http\Requests\UpdatePlayerRequest;
+use App\Models\Club;
+use App\Models\Photo;
+use Illuminate\Http\Request;
 
 class PlayerController extends Controller
 {
@@ -15,7 +18,9 @@ class PlayerController extends Controller
      */
     public function index()
     {
-        //
+        $players = Player::all();
+        $photos = Photo::all();
+        return view('pages.player', compact('players', 'photos'));
     }
 
     /**
@@ -25,7 +30,9 @@ class PlayerController extends Controller
      */
     public function create()
     {
-        //
+        $clubs = Club::all();
+        $photos = Photo::all();
+        return view('pages.createPlayer', compact('clubs', 'photos'));
     }
 
     /**
@@ -34,9 +41,27 @@ class PlayerController extends Controller
      * @param  \App\Http\Requests\StorePlayerRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePlayerRequest $request)
+    public function store(Request $request)
     {
-        //
+        $store = new Player();
+        $store->nom = $request->nom;
+        $store->prenom = $request->prenom;
+        $store->age = $request->age;
+        $store->tel = $request->tel;
+        $store->email = $request->email;
+        $store->genre = $request->genre;
+        $store->pays = $request->pays;
+        $store->role = $request->role;
+
+        if ($request->club_id == "null") {
+            $store->club_id = null;
+        } else {
+            $store->club_id = $request->equipe_id;
+        }
+
+        $store->photo_id = $request->photo_id;
+        $store->save();
+        return redirect('/player/create');
     }
 
     /**
@@ -47,7 +72,7 @@ class PlayerController extends Controller
      */
     public function show(Player $player)
     {
-        //
+        return view('pages.showPlayer', compact('player'));
     }
 
     /**
