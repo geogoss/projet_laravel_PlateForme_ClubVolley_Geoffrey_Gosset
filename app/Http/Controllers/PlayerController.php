@@ -7,6 +7,7 @@ use App\Http\Requests\StorePlayerRequest;
 use App\Http\Requests\UpdatePlayerRequest;
 use App\Models\Club;
 use App\Models\Photo;
+use Illuminate\Http\Request;
 
 class PlayerController extends Controller
 {
@@ -40,7 +41,7 @@ class PlayerController extends Controller
      * @param  \App\Http\Requests\StorePlayerRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePlayerRequest $request)
+    public function store(Request $request)
     {
         $store = new Player();
         $store->nom = $request->nom;
@@ -51,7 +52,13 @@ class PlayerController extends Controller
         $store->genre = $request->genre;
         $store->pays = $request->pays;
         $store->role = $request->role;
-        $store->club_id = $request->club_id;
+
+        if ($request->club_id == "null") {
+            $store->club_id = null;
+        } else {
+            $store->club_id = $request->equipe_id;
+        }
+
         $store->photo_id = $request->photo_id;
         $store->save();
         return redirect('/player/create');
@@ -65,7 +72,7 @@ class PlayerController extends Controller
      */
     public function show(Player $player)
     {
-        //
+        return view('pages.showPlayer', compact('player'));
     }
 
     /**

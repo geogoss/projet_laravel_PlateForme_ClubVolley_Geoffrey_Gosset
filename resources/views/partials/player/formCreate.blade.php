@@ -53,7 +53,7 @@
                     <option value={{ $club->id }}>{{ $club->nom }}</option>
                 @endforeach
             </select>
-            <select name="club_id" class="form-select" aria-label="Default select example">
+            <select name="photo_id" class="form-select" aria-label="Default select example">
                 <option selected>Selectionne la photo</option>
                 @foreach ($photos as $photo)
                     <option value={{ $photo->id }}>{{ $photo->src }}</option>
