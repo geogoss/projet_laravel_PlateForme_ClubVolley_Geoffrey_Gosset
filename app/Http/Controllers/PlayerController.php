@@ -83,7 +83,9 @@ class PlayerController extends Controller
      */
     public function edit(Player $player)
     {
-        //
+        $clubs = Club::all();
+        $photos = Photo::all();
+        return view('pages.editPlayer', compact('player', 'clubs', 'photos'));
     }
 
     /**
@@ -95,7 +97,19 @@ class PlayerController extends Controller
      */
     public function update(UpdatePlayerRequest $request, Player $player)
     {
-        //
+        $player->nom = $request->nom;
+        $player->prenom = $request->prenom;
+        $player->age = $request->age;
+        $player->tel = $request->tel;
+        $player->email = $request->email;
+        $player->genre = $request->genre;
+        $player->pays = $request->pays;
+        $player->role = $request->role;
+        $player->role = $request->role;
+        $player->club_id = $request->club_id;
+        $player->photo_id = $request->photo_id;
+        $player->save();
+        return redirect('/player');
     }
 
     /**
@@ -106,6 +120,7 @@ class PlayerController extends Controller
      */
     public function destroy(Player $player)
     {
-        //
+        $player->delete();
+        return redirect('/player');
     }
 }
