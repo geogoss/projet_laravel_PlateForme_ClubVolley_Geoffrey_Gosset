@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Photo;
 use App\Http\Requests\StorePhotoRequest;
 use App\Http\Requests\UpdatePhotoRequest;
+use Illuminate\Support\Facades\Storage;
 
 class PhotoController extends Controller
 {
@@ -26,7 +27,8 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('pages.createPhoto');
     }
 
     /**
@@ -37,7 +39,11 @@ class PhotoController extends Controller
      */
     public function store(StorePhotoRequest $request)
     {
-        //
+        $store = new Photo();
+        $store->src = $request->file('src')->hashName();
+        Storage::put('public', $request->file('src'));
+        $store->save();
+        return redirect('/photo')->with('success', 'Photo update');
     }
 
     /**
@@ -48,7 +54,7 @@ class PhotoController extends Controller
      */
     public function show(Photo $photo)
     {
-        //
+        return view('pages.showPhoto', compact('photo'));
     }
 
     /**
@@ -82,6 +88,7 @@ class PhotoController extends Controller
      */
     public function destroy(Photo $photo)
     {
-        //
+        $photo->delete();
+        return redirect('/photo')->with('info', 'Photo deleted');
     }
 }

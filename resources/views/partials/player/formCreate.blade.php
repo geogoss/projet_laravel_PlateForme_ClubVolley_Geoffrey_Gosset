@@ -59,7 +59,7 @@
                     <option value={{ $photo->id }}>{{ $photo->src }}</option>
                 @endforeach
             </select>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-info mt-3">Créer</button>
         </form>
     </div>
 </section>
