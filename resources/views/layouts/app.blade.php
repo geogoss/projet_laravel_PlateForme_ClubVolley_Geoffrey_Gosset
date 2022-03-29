@@ -23,7 +23,7 @@
                         <a class="nav-link" href="/club">Club</a>
                         <a class="nav-link" href="/club/create">Créer un club</a>
                         <a class="nav-link" href="/photo">Photo</a>
-                        <a class="nav-link" href="/photo/create">Créer un photo</a>
+                        <a class="nav-link" href="/photo/create">Importer une photo</a>
                     </div>
                 </div>
             </div>

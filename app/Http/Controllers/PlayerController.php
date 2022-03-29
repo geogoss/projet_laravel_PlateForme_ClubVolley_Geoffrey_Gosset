@@ -106,7 +106,12 @@ class PlayerController extends Controller
         $player->pays = $request->pays;
         $player->role = $request->role;
         $player->role = $request->role;
-        $player->club_id = $request->club_id;
+        if ($request->club_id == "null") {
+            $player->club_id = null;
+        } else {
+            $player->club_id = $request->equipe_id;
+        }
+
         $player->photo_id = $request->photo_id;
         $player->save();
         return redirect('/player');
