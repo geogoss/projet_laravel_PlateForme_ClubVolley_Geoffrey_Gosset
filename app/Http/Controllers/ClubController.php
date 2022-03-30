@@ -82,7 +82,7 @@ class ClubController extends Controller
      */
     public function edit(Club $club)
     {
-        //
+        return view('partials.team.formEdit');
     }
 
     /**

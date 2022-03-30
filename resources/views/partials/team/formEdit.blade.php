@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-@include('partials.nav')
 <main>
     <div class="container w-100  text-white">
         <h1 class="text-center my-5">Edit clubs</h1>
@@ -18,7 +17,7 @@
 
                 <div class="mb-3">
                     <label class="form-label">Continent</label>
-                    <select name="continent_id" class="form-control">
+                    <select name="continent" class="form-control">
                         <option value="{{$club->continent->id}}">{{$club->continent->nom}}</option>
                         @foreach ($continents as $continent)
                         <option value="{{$continent->id}}">{{$continent->nom}}</option>
@@ -38,8 +37,8 @@
 
                 <div class="mb-3">
                     <label class="form-label">Nombre de joueur : </label>
-                    <select name="max" class="form-control">
-                        <option value="{{$club->max}}">{{$club->max}}/7</option>
+                    <select name="nombre" class="form-control">
+                        <option value="{{$club->nombre}}">{{$club->nombre}}/7</option>
                         <option value="1">1/7</option>
                         <option value="2">2/7</option>
                         <option value="3">3/7</option>
@@ -53,9 +52,9 @@
 
             <div class="w-25">
                 <div class="mb-3">
-                    <label class="form-label">ATT</label>
-                    <select name="ATT" class="form-control">
-                        <option value="{{$club->ATT}}">{{$club->ATT}}</option>
+                    <label class="form-label">AV</label>
+                    <select name="AV" class="form-control">
+                        <option value="{{$club->AV}}">{{$club->AV}}</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -67,9 +66,9 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">CT</label>
-                    <select name="CT" class="form-control">
-                        <option value="{{$club->CT}}">{{$club->CT}}</option>
+                    <label class="form-label">CE</label>
+                    <select name="CE" class="form-control">
+                        <option value="{{$club->CE}}">{{$club->CE}}</option>
                         <option value="1">1</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -82,9 +81,9 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">DC</label>
-                    <select name="DC" class="form-control">
-                        <option value="{{$club->DC}}">{{$club->DC}}</option>
+                    <label class="form-label">AR</label>
+                    <select name="AR" class="form-control">
+                        <option value="{{$club->AR}}">{{$club->AR}}</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
