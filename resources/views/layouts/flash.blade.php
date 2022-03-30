@@ -18,6 +18,12 @@
         <strong>{!!$message!!}</strong>
     </div>
 @endif    
+{{-- // message en cas de info --}}
+@if($message = Session::get("info"))
+    <div class="alert alert-info alert-block">
+        <strong>{!!$message!!}</strong>
+    </div>
+@endif    
 
 {{-- // message en cas de errors --}}
 @if($errors->any())

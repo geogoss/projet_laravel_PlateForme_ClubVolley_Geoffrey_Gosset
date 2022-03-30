@@ -1,7 +1,8 @@
+@include('layouts.flash')
 <section class="w-50 mx-auto m-5">
     <div class="bg-secondary py-5">
 
-        <h1 class="text-center text-white">Créer un membre</h1>
+        <h1 class="text-center text-white">Modifier la fiche d'un joueur</h1>
 
         <form class="w-75 mx-auto" action="/player/{{ $player->id }} " method="POST">
             @csrf
@@ -63,7 +64,7 @@
                     <option value={{ $photo->id }}>{{ $photo->src }}</option>
                 @endforeach
             </select>
-            <button type="submit" class="btn btn-info mt-3">Créer</button>
+            <button type="submit" class="btn btn-info mt-3">Modifier</button>
         </form>
     </div>
 </section>
