@@ -27,8 +27,8 @@ class ClubController extends Controller
      */
     public function create()
     {
-        // $continents = Continent::all();
-        return view('partials.team.formCreate');
+        $continents = Continent::all();
+        return view('partials.team.formCreate', compact('continents'));
     }
 
     /**
@@ -82,7 +82,7 @@ class ClubController extends Controller
      */
     public function edit(Club $club)
     {
-        //
+        return view('partials.team.formEdit', compact('club'));
     }
 
     /**

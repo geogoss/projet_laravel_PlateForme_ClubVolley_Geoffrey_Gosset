@@ -20,11 +20,14 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">Continent</label>
-                    <input name="continent" type="text" class="form-control">
-                        {{-- @foreach ($continents as $continent)
-                        <option value="{{$continent->id}}">{{$continent->nom}}</option>
-                        @endforeach --}}
+                    <label class="form-label">Continent : </label>
+                    <select name="continent" class="form-control">
+                        <option value="europe">Europe</option>
+                        <option value="amerique">Amérique</option>
+                        <option value="afrique">Afrique</option>
+                        <option value="asie">Asie</option>
+                        <option value="oceanie">Océanie</option>
+                    </select>
                 </div>
 
                 <div class="mb-3">
