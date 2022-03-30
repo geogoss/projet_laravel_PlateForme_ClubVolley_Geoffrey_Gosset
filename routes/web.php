@@ -3,6 +3,8 @@
 use App\Http\Controllers\ClubController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\PlayerController;
+use App\Models\Player;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +19,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $playerTeam = DB::table('players')->orderByRaw('genre')->get();
+    return view('welcome', compact('playerTeam'));
 });
 
 
