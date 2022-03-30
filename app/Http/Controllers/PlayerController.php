@@ -61,7 +61,7 @@ class PlayerController extends Controller
 
         $store->photo_id = $request->photo_id;
         $store->save();
-        return redirect('/player/create');
+        return redirect('/player/create')->with('success', 'Joueur Created');
     }
 
     /**
@@ -114,7 +114,7 @@ class PlayerController extends Controller
 
         $player->photo_id = $request->photo_id;
         $player->save();
-        return redirect('/player');
+        return redirect('/player/'.$player->id.'/edit')->with('info', 'Info joueur modifiées');
     }
 
     /**
@@ -125,7 +125,8 @@ class PlayerController extends Controller
      */
     public function destroy(Player $player)
     {
+        
         $player->delete();
-        return redirect('/player');
+        return redirect('/player')->with('danger', 'Joueur supprimé');
     }
 }

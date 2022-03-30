@@ -88,7 +88,11 @@ class PhotoController extends Controller
      */
     public function destroy(Photo $photo)
     {
+        $personnes = array('aicha.jpg', 'alexe.jpg', 'alice.jpg', 'barbara.jpg', 'benja.jpg', 'bernadette.jpg', 'bibou.jpg', 'bruno.jpg', 'cathy.jpg', 'charles.jpg', 'didier.jpg', 'esteban.jpg', 'farid.jpg', 'ines.jpg', 'jean.jpg', 'jef.jpg', 'jenny.jpg', 'jimy.jpg', 'joelle.jpg', 'julie.jpg', 'kevin.jpg', 'kim.jpg', 'kimy.jpg', 'leila.jpg', 'magali.jpg', 'marc.jpg', 'margaux.jpg', 'mathieu.jpg', 'michele.jpg', 'nadia.jpg', 'nathalie.jpg', 'pierre.jpg', 'sophie.jpg', 'steph.jpg', 'stephane.jpg', 'steve.jpg', 'tom.jpg', 'victor.jpg');
+        if (!(in_array($photo->src, $personnes) )) {
+            Storage::delete('public/'.$photo->src);
+        }
         $photo->delete();
-        return redirect('/photo')->with('info', 'Photo deleted');
+        return redirect('/photo')->with('danger', 'Photo deleted');
     }
 }

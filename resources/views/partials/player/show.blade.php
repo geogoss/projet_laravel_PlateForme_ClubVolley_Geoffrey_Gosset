@@ -1,3 +1,5 @@
+@include('layouts.flash')
+
 <section class="w-25 mx-auto m-5 bg-dark text-white">
     <img style="width: 100px;" src="{{asset('storage/'.$player->photo->src)}} " alt="">
     <div class="text-start ms-3 ">
