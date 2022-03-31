@@ -18,9 +18,12 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
-                        <a class="nav-link" href="#">Features</a>
-                        <a class="nav-link" href="#">Pricing</a>
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                        <a class="nav-link" href="/player">Joueur</a>
+                        <a class="nav-link" href="/player/create">Créer Joueur</a>
+                        <a class="nav-link" href="/club">Club</a>
+                        <a class="nav-link" href="/club/create">Créer un club</a>
+                        <a class="nav-link" href="/photo">Photo</a>
+                        <a class="nav-link" href="/photo/create">Importer une photo</a>
                     </div>
                 </div>
             </div>

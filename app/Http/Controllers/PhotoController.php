@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Photo;
 use App\Http\Requests\StorePhotoRequest;
 use App\Http\Requests\UpdatePhotoRequest;
+use Illuminate\Support\Facades\Storage;
 
 class PhotoController extends Controller
 {
@@ -15,7 +16,8 @@ class PhotoController extends Controller
      */
     public function index()
     {
-        //
+        $photos = Photo::all();
+        return view('pages.photo', compact('photos'));
     }
 
     /**
@@ -25,7 +27,8 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('pages.createPhoto');
     }
 
     /**
@@ -36,7 +39,11 @@ class PhotoController extends Controller
      */
     public function store(StorePhotoRequest $request)
     {
-        //
+        $store = new Photo();
+        $store->src = $request->file('src')->hashName();
+        Storage::put('public', $request->file('src'));
+        $store->save();
+        return redirect('/photo')->with('success', 'Photo update');
     }
 
     /**
@@ -47,7 +54,7 @@ class PhotoController extends Controller
      */
     public function show(Photo $photo)
     {
-        //
+        return view('pages.showPhoto', compact('photo'));
     }
 
     /**
@@ -81,6 +88,11 @@ class PhotoController extends Controller
      */
     public function destroy(Photo $photo)
     {
-        //
+        $personnes = array('aicha.jpg', 'alexe.jpg', 'alice.jpg', 'barbara.jpg', 'benja.jpg', 'bernadette.jpg', 'bibou.jpg', 'bruno.jpg', 'cathy.jpg', 'charles.jpg', 'didier.jpg', 'esteban.jpg', 'farid.jpg', 'ines.jpg', 'jean.jpg', 'jef.jpg', 'jenny.jpg', 'jimy.jpg', 'joelle.jpg', 'julie.jpg', 'kevin.jpg', 'kim.jpg', 'kimy.jpg', 'leila.jpg', 'magali.jpg', 'marc.jpg', 'margaux.jpg', 'mathieu.jpg', 'michele.jpg', 'nadia.jpg', 'nathalie.jpg', 'pierre.jpg', 'sophie.jpg', 'steph.jpg', 'stephane.jpg', 'steve.jpg', 'tom.jpg', 'victor.jpg');
+        if (!(in_array($photo->src, $personnes) )) {
+            Storage::delete('public/'.$photo->src);
+        }
+        $photo->delete();
+        return redirect('/photo')->with('danger', 'Photo deleted');
     }
 }

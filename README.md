@@ -1,64 +1,53 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+laravel_foreing_key_exo_5 (one to many)-> Projet laravel duo
 
-## About Laravel
+Pour un club de voleyball il faut réaliser un site internet, la seule chose qu'on sait c'est que le client veut pouvoir créer des équipes et les modifier
+pour les informations chaque équipes a un nom de club, une ville qu'elle représente , un pays et un maximum de joueur possible dans leur équipe et par role(2 avant, 2 centraux, 2 arriere, 3remplacants).
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+exemple : Les Fifous , Belgique, 7
+Et bien sur 
+les joueurs doivent pouvoir etre rajoutés dans la plateforme
+ils ont : 
+un nom , 
+prénom,
+age, 
+téléphone,
+email, 
+un genre, 
+un pays d'origine,
+role dans une partie ( avant, central, arrière, remplaçant ), 
+un equipe_id et 
+une photo_id
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Si l'équipe n'a plus de place dans un poste alors le joueur ne peut pas être rajouter et on reçoit un message pour nous en prévenir.( voir Laravel - The PHP Framework For Web Artisans )
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+=> Il faut 
+une page pour afficher toutes les équipes :
+nom , 
+ville , 
+nombre de joueurs sur/maximum de place
 
-## Learning Laravel
+exemple :
+Les fifous , anderlecht 5/7 et un button voir
+dans le show de chaque équipes on peut revoir le nom de l'quipe la ville le nombre de joueurs sur/maximum de place et tous les joueurs qui en font partis juste leur nom prénom et leur role et un button voir qui nous ramene sur le show du joueur pour y voir TOUTES ses informations et meme son équipe. ( utiliser les methode dans les modeles pour récupérer cette information.)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+=> Il faut 
+une page pour afficher tous les joueurs
+Nom ,
+Prénom ,
+Nom d'équipe ,
+button pour voir le show du joueur
+le nom de l'équipe du joueur est cliquable également pour aller voir le show de l'équipe avec toutes les informations !
+-------------------------------------------------------------------------------------
+Une page Dashboard avec :
+une section ( 2 équipes remplies au hasard )
+une section ( 4 joueurs sans équipes au hasard )
+une section ( 4 joueurs avec équipe )
+une section ( 2 équipes non remplies au hasard )
+une section ( les equipes d'europes )
+une section ( les équipes hors europes )
+une section ( les joueurs qui représente leur pays( meme pays dorigine que l'équipe dans la quelle ils jouent )
+Une section 5 joueuses au hasard qui ont une équipe !
+Une section 5 joueurs homme et qui ont une équipe !
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

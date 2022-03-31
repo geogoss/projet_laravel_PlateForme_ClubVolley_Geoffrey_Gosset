@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Club;
+use App\Models\Continent;
 use App\Http\Requests\StoreClubRequest;
 use App\Http\Requests\UpdateClubRequest;
 
@@ -15,7 +16,8 @@ class ClubController extends Controller
      */
     public function index()
     {
-        //
+        $clubs = Club::paginate(6);
+        return view ('partials.team.afficheTeam', compact('clubs'));
     }
 
     /**
@@ -25,7 +27,8 @@ class ClubController extends Controller
      */
     public function create()
     {
-        //
+        $continents = Continent::all();
+        return view('partials.team.formCreate', compact('continents'));
     }
 
     /**
@@ -36,7 +39,28 @@ class ClubController extends Controller
      */
     public function store(StoreClubRequest $request)
     {
-        //
+        $request->validate([
+            'nom' => 'required',
+            'ville' => 'required',
+            'pays' => 'required',
+            // 'AV' => 'required | integer',
+            // 'AR' => 'required | integer',
+            // 'CE' => 'required | integer',
+            // 'RP' => 'required | integer',
+        ]);
+        $club = new Club();
+        $club->nom = $request->nom;
+        $club->ville = $request->ville;
+        $club->pays = $request->pays;
+        $club->continent = $request->continent;
+        // $club->nombre = $request->AV + $request-> AR + $request-> CE + $request-> RP;
+        $club->nombre=$request->nombre;
+        $club->AV = $request->AV;
+        $club->AR = $request->AR;
+        $club->CE = $request->CE;
+        $club->RP = $request->RP;
+        $club->save();
+        return redirect("/club")->with('message', 'Vous avez créé une équipe');
     }
 
     /**
@@ -47,7 +71,7 @@ class ClubController extends Controller
      */
     public function show(Club $club)
     {
-        //
+        return view('partials.team.show', compact('club'));
     }
 
     /**
@@ -58,7 +82,7 @@ class ClubController extends Controller
      */
     public function edit(Club $club)
     {
-        //
+        return view('partials.team.formEdit', compact('club'));
     }
 
     /**
@@ -70,7 +94,30 @@ class ClubController extends Controller
      */
     public function update(UpdateClubRequest $request, Club $club)
     {
-        //
+        $request->validate([
+            'nom' => 'required',
+            'ville' => 'required',
+            'pays' => 'required',
+            'AV' => 'required | integer',
+            'AR' => 'required | integer',
+            'CE' => 'required | integer',
+            'RP' => 'required | integer',
+        ]);
+        $club = new Club();
+        $club->nom = $request->nom;
+        $club->ville = $request->ville;
+        $club->pays = $request->pays;
+        // $club->nombre = $request->AV + $request-> AR + $request-> CE + $request-> RP;
+        $club->nombre = $request->nombre;
+        $club->AV = $request->AV;
+        $club->AR = $request->AR;
+        $club->CE = $request->CE;
+        $club->RP = $request->RP;
+        $club->created_at = now();
+        $club->updated_at = now();
+        $club->save();
+
+        return redirect()->route('club.index')->with('message', 'Vous avez modifié une équipe');
     }
 
     /**
@@ -81,6 +128,7 @@ class ClubController extends Controller
      */
     public function destroy(Club $club)
     {
-        //
+        $club->delete();
+        return redirect()->back()->with('message', 'Vous avez supprimé une équipe');
     }
 }
