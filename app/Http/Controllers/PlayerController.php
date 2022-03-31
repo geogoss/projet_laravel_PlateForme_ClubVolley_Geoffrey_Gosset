@@ -51,7 +51,7 @@ class PlayerController extends Controller
         $store->email = $request->email;
         $store->genre = $request->genre;
         $store->pays = $request->pays;
-        $store->role = $request->role;
+        $store->role_id = $request->role_id;
 
         if ($request->club_id == "null") {
             $store->club_id = null;
