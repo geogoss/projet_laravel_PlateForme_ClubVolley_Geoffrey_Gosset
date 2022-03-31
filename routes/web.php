@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
 
      //Définir 2 var avec chaque table
-     $club = Club::all();
+     $clubs = Club::all();
      $players = Player::all();
 
      //joueurs sans club random
@@ -59,7 +59,7 @@ Route::get('/', function () {
     // $playerTeam = DB::table('players')->inRandomOrder()->first();
     // $playerTeam1 = DB::table('players')->inRandomOrder()->first();
     // $playerTeam2 = DB::table('players')->inRandomOrder()->first();
-    return view('welcome', compact('playerTeam', 'playerTeam1', 'playerTeam2', 'players', 'club', 'noClub', 'noClubRandom', 'avecClub', 'avecClubRandom', 'europeClub', 'noEuropeClub', 'femme', 'joueurFemme', 'joueurHomme' ));
+    return view('welcome', compact('playerTeam', 'playerTeam1', 'playerTeam2', 'players', 'clubs', 'noClub', 'noClubRandom', 'avecClub', 'avecClubRandom', 'europeClub', 'noEuropeClub', 'femme', 'joueurFemme', 'joueurHomme' ));
 });
 
 // , 'playerTeam1', 'playerTeam2'

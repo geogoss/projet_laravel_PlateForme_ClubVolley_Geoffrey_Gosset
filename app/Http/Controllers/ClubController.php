@@ -107,7 +107,8 @@ class ClubController extends Controller
         $club->nom = $request->nom;
         $club->ville = $request->ville;
         $club->pays = $request->pays;
-        $club->nombre = $request->AV + $request-> AR + $request-> CE + $request-> RP;
+        // $club->nombre = $request->AV + $request-> AR + $request-> CE + $request-> RP;
+        $club->nombre = $request->nombre;
         $club->AV = $request->AV;
         $club->AR = $request->AR;
         $club->CE = $request->CE;

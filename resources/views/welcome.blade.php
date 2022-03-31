@@ -1,4 +1,9 @@
 @extends('layouts.app')
 @section('content')
-    @include('partials.sections.joueur')
+    <header class="my-5 text-center">
+        <h1>Plate-Forme</h1>
+        <h3>Compétition VollayBall</h3>
+    </header>
+    <hr>
+    @include('partials.sections.teamNotFull')
 @endsection
