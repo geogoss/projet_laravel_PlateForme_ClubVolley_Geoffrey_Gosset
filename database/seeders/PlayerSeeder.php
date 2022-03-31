@@ -24,7 +24,7 @@ class PlayerSeeder extends Seeder
                'email' => 'geoffrey@gmail.com',
                'genre' => 'Homme',
                'pays' => 'Belgique',
-               'role' => 'AV',
+               'role_id' => 1,
             //    'club_id' => 1,
                'photo_id' => 1 
             ],
@@ -36,7 +36,7 @@ class PlayerSeeder extends Seeder
                'email' => 'benoit@gmail.com',
                'genre' => 'Homme',
                'pays' => 'Belgique',
-               'role' => 'AV',
+               'role_id' => 1,
             //    'club_id' => 1,
                'photo_id' => 2 
             ],
@@ -48,7 +48,7 @@ class PlayerSeeder extends Seeder
                'email' => 'ismael@gmail.com',
                'genre' => 'Homme',
                'pays' => 'Belgique',
-               'role' => 'AR',
+               'role_id' => 2,
             //    'club_id' => 1,
                'photo_id' => 3 
             ],
@@ -60,7 +60,7 @@ class PlayerSeeder extends Seeder
                'email' => 'hedi@gmail.com',
                'genre' => 'Homme',
                'pays' => 'Belgique',
-               'role' => 'AR',
+               'role_id' => 2,
             //    'club_id' => 1,
                'photo_id' => 4 
             ],
@@ -72,7 +72,7 @@ class PlayerSeeder extends Seeder
                'email' => 'hedi@gmail.com',
                'genre' => 'Homme',
                'pays' => 'Belgique',
-               'role' => 'CE',
+               'role_id' => 3,
             //    'club_id' => 1,
                'photo_id' => 5 
             ],
@@ -84,7 +84,7 @@ class PlayerSeeder extends Seeder
                'email' => 'Jo@gmail.com',
                'genre' => 'Homme',
                'pays' => 'Belgique',
-               'role' => 'CE',
+               'role_id' => 3,
             //    'club_id' => 1,
                'photo_id' => 6 
             ],
@@ -96,7 +96,7 @@ class PlayerSeeder extends Seeder
                'email' => 'Soufian@gmail.com',
                'genre' => 'Homme',
                'pays' => 'Belgique',
-               'role' => 'RP',
+               'role_id' => 4,
             //    'club_id' => 1,
                'photo_id' => 7 
             ],
@@ -108,7 +108,7 @@ class PlayerSeeder extends Seeder
                'email' => 'alix@gmail.com',
                'genre' => 'Femme',
                'pays' => 'Italie',
-               'role' => 'RP',
+               'role_id' => 4,
             //    'club_id' => 1,
                'photo_id' => 8 
             ],
@@ -120,7 +120,7 @@ class PlayerSeeder extends Seeder
                'email' => 'louis@gmail.com',
                'genre' => 'Homme',
                'pays' => 'Algérie',
-               'role' => 'RP',
+               'role_id' => 4,
             //    'club_id' => 1,
                'photo_id' => 9 
             ],
@@ -132,7 +132,7 @@ class PlayerSeeder extends Seeder
                'email' => 'ines@gmail.com',
                'genre' => 'Femme',
                'pays' => 'Belgique',
-               'role' => 'AV',
+               'role_id' => 1,
             //    'club_id' => 2,
                'photo_id' => 10 
             ],
@@ -144,7 +144,7 @@ class PlayerSeeder extends Seeder
                'email' => 'cindy@gmail.com',
                'genre' => 'Femme',
                'pays' => 'France',
-               'role' => 'AV',
+               'role_id' => 1,
             //    'club_id' => 2,
                'photo_id' => 11 
             ],
@@ -156,7 +156,7 @@ class PlayerSeeder extends Seeder
                'email' => 'fatou@gmail.com',
                'genre' => 'Femme',
                'pays' => 'Belgique',
-               'role' => 'AR',
+               'role_id' => 2,
             //    'club_id' => 2,
                'photo_id' => 12 
             ],
@@ -168,7 +168,7 @@ class PlayerSeeder extends Seeder
                'email' => 'marcel@gmail.com',
                'genre' => 'Homme',
                'pays' => 'Argentine',
-               'role' => 'AR',
+               'role_id' => 2,
             //    'club_id' => 2,
                'photo_id' => 13 
             ],
@@ -180,7 +180,7 @@ class PlayerSeeder extends Seeder
                'email' => 'hedi@gmail.com',
                'genre' => 'Homme',
                'pays' => 'Belgique',
-               'role' => 'CE',
+               'role_id' => 3,
             //    'club_id' => 2,
                'photo_id' => 14 
             ],
@@ -192,7 +192,7 @@ class PlayerSeeder extends Seeder
                'email' => 'marie@gmail.com',
                'genre' => 'Femme',
                'pays' => 'Perou',
-               'role' => 'CE',
+               'role_id' => 3,
             //    'club_id' => 2,
                'photo_id' => 15 
             ],
@@ -204,7 +204,7 @@ class PlayerSeeder extends Seeder
                'email' => 'steph@gmail.com',
                'genre' => 'Homme',
                'pays' => 'Chine',
-               'role' => 'RP',
+               'role_id' => 4,
             //    'club_id' => 2,
                'photo_id' => 16 
             ],
@@ -216,7 +216,7 @@ class PlayerSeeder extends Seeder
                'email' => 'alicia@gmail.com',
                'genre' => 'Femme',
                'pays' => 'Bresil',
-               'role' => 'RP',
+               'role_id' => 4,
             //    'club_id' => 2,
                'photo_id' => 17 
             ],
@@ -228,7 +228,7 @@ class PlayerSeeder extends Seeder
                'email' => 'mado@gmail.com',
                'genre' => 'Femme',
                'pays' => 'Pakistan',
-               'role' => 'RP',
+               'role_id' => 4,
             //    'club_id' => 2,
                'photo_id' => 18 
             ],
@@ -240,7 +240,7 @@ class PlayerSeeder extends Seeder
                'email' => 'maryse@gmail.com',
                'genre' => 'Femme',
                'pays' => 'Belgique',
-               'role' => 'AV',
+               'role_id' => 1,
             //    'club_id' => 3,
                'photo_id' => 19 
             ],
@@ -252,7 +252,7 @@ class PlayerSeeder extends Seeder
                'email' => 'samuel@gmail.com',
                'genre' => 'Homme',
                'pays' => 'Canada',
-               'role' => 'AV',
+               'role_id' => 1,
             //    'club_id' => 3,
                'photo_id' => 20 
             ],
@@ -264,7 +264,7 @@ class PlayerSeeder extends Seeder
                'email' => 'mel@gmail.com',
                'genre' => 'Homme',
                'pays' => 'UE',
-               'role' => 'AR',
+               'role_id' => 2,
             //    'club_id' => 3,
                'photo_id' => 21 
             ],
@@ -276,7 +276,7 @@ class PlayerSeeder extends Seeder
                'email' => 'angela@gmail.com',
                'genre' => 'Femme',
                'pays' => 'Inde',
-               'role' => 'AR',
+               'role_id' => 2,
             //    'club_id' => 3,
                'photo_id' => 22 
             ],
@@ -288,7 +288,7 @@ class PlayerSeeder extends Seeder
                'email' => 'aicha@gmail.com',
                'genre' => 'Femme',
                'pays' => 'Tunisie',
-               'role' => 'CE',
+               'role_id' => 3,
             //    'club_id' => 3,
                'photo_id' => 23 
             ],
@@ -300,7 +300,7 @@ class PlayerSeeder extends Seeder
                'email' => 'marie@gmail.com',
                'genre' => 'Femme',
                'pays' => 'Perou',
-               'role' => 'CE',
+               'role_id' => 3,
             //    'club_id' => 3,
                'photo_id' => 24 
             ],
@@ -312,7 +312,7 @@ class PlayerSeeder extends Seeder
                'email' => 'stephanie@gmail.com',
                'genre' => 'Femme',
                'pays' => 'Australie',
-               'role' => 'RP',
+               'role_id' => 4,
             //    'club_id' => 3,
                'photo_id' => 25 
             ],
@@ -324,7 +324,7 @@ class PlayerSeeder extends Seeder
                'email' => 'benja@gmail.com',
                'genre' => 'Homme',
                'pays' => 'Bresil',
-               'role' => 'RP',
+               'role_id' => 4,
             //    'club_id' => 3,
                'photo_id' => 26 
             ],
@@ -336,7 +336,7 @@ class PlayerSeeder extends Seeder
                'email' => 'justin@gmail.com',
                'genre' => 'Homme',
                'pays' => 'Irak',
-               'role' => 'RP',
+               'role_id' => 4,
             //    'club_id' => 3,
                'photo_id' => 27 
             ],
@@ -348,7 +348,7 @@ class PlayerSeeder extends Seeder
                'email' => 'britney@gmail.com',
                'genre' => 'Femme',
                'pays' => 'Belgique',
-               'role' => 'AV',
+               'role_id' => 1,
             //    'club_id' => 4,
                'photo_id' => 28 
             ],
@@ -360,7 +360,7 @@ class PlayerSeeder extends Seeder
                'email' => 'denzel@gmail.com',
                'genre' => 'Homme',
                'pays' => 'Irlande',
-               'role' => 'AV',
+               'role_id' => 1,
             //    'club_id' => 4,
                'photo_id' => 29 
             ],
@@ -372,7 +372,7 @@ class PlayerSeeder extends Seeder
                'email' => 'melissa@gmail.com',
                'genre' => 'Femme',
                'pays' => 'UE',
-               'role' => 'AR',
+               'role_id' => 2,
             //    'club_id' => 4,
                'photo_id' => 30 
             ],
@@ -384,7 +384,7 @@ class PlayerSeeder extends Seeder
                'email' => 'marion@gmail.com',
                'genre' => 'Femme',
                'pays' => 'Hollande',
-               'role' => 'AR',
+               'role_id' => 2,
             //    'club_id' => 4,
                'photo_id' => 31 
             ],
@@ -396,7 +396,7 @@ class PlayerSeeder extends Seeder
                'email' => 'bene@gmail.com',
                'genre' => 'Femme',
                'pays' => 'Grece',
-               'role' => 'CE',
+               'role_id' => 3,
             //    'club_id' => 4,
                'photo_id' => 32 
             ],
@@ -408,7 +408,7 @@ class PlayerSeeder extends Seeder
                'email' => 'tessa@gmail.com',
                'genre' => 'Femme',
                'pays' => 'France',
-               'role' => 'CE',
+               'role_id' => 3,
             //    'club_id' => 4,
                'photo_id' => 33 
             ],
@@ -420,7 +420,7 @@ class PlayerSeeder extends Seeder
                'email' => 'momo@gmail.com',
                'genre' => 'Homme',
                'pays' => 'Australie',
-               'role' => 'RP',
+               'role_id' => 4,
             //    'club_id' => 4,
                'photo_id' => 34 
             ],
@@ -432,7 +432,7 @@ class PlayerSeeder extends Seeder
                'email' => 'benjamen@gmail.com',
                'genre' => 'Homme',
                'pays' => 'Bresil',
-               'role' => 'RP',
+               'role_id' => 4,
             //    'club_id' => 4,
                'photo_id' => 35 
             ],
@@ -444,7 +444,7 @@ class PlayerSeeder extends Seeder
                'email' => 'justin@gmail.com',
                'genre' => 'Homme',
                'pays' => 'Iran',
-               'role' => 'RP',
+               'role_id' => 4,
             //    'club_id' => 4,
                'photo_id' => 36 
             ],
