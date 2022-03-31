@@ -60,7 +60,7 @@ class ClubSeeder extends Seeder
                 'CE' => 2,
                 'AR' => 2,
                 'RP' => 0,
-                'continent' => 'europe',
+                'continent' => 'asie',
             ],
             [
                 'nom' => 'Scorpion marocain',

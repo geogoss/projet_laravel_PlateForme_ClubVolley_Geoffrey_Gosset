@@ -173,8 +173,8 @@ class PlayerSeeder extends Seeder
                'photo_id' => 13 
             ],
             [
-               'nom' => 'Hedi',
-               'prenom' => 'Hassan',
+               'nom' => 'Babou',
+               'prenom' => 'Bilhal',
                'age' => 22,
                'tel' => '0494502212',
                'email' => 'hedi@gmail.com',
