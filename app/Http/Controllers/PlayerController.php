@@ -258,7 +258,28 @@ class PlayerController extends Controller
      */
     public function destroy(Player $player)
     {
-        
+       
+        //delete au niveau du nombre de joueurs dans l'équipe
+        $equipe = Club::find($player->equipe_id);
+        switch ($player->role_id) {
+            case 1:
+                $equipe->AV-=1;
+                $equipe->save();
+                break;
+            case 2:
+                $equipe->CE-=1;
+                $equipe->save();
+                break;
+            case 3:
+                $equipe->AR-=1;
+                $equipe->save();            
+                break;
+            case 4:
+                $equipe->RP-=1;
+                $equipe->save();
+                break;
+        }
+
         $player->delete();
         return redirect('/player')->with('danger', 'Joueur supprimé');
     }
