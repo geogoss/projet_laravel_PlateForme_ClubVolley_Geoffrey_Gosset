@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+@include('layouts.flash')
     <main>
         <div class="container w-100  text-dark">
             <h1 class="text-center my-5">Edit clubs</h1>
 
-            <form class=" d-flex w-100 justify-content-around pt-5" action={{ route('club.update', $club->id) }}
+            <form class=" d-flex w-100 justify-content-around pt-5" action="/club/{{$club->id}}"
                 method="post" enctype="multipart/form-data">
                 @csrf
                 @method('put')
@@ -39,14 +40,16 @@
                     <div class="mb-3">
                         <label class="form-label">Nombre de joueur : </label>
                         <select name="nombre" class="form-control">
-                            <option value="{{ $club->nombre }}">{{ $club->nombre }}/7</option>
-                            <option value="1">1/7</option>
-                            <option value="2">2/7</option>
-                            <option value="3">3/7</option>
-                            <option value="4">4/7</option>
-                            <option value="5">5/7</option>
-                            <option value="6">6/7</option>
-                            <option value="7">7/7</option>
+                            <option value="{{ $club->nombre }}">{{ $club->nombre }}/8</option>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
                         </select>
                     </div>
                 </div>
@@ -56,13 +59,9 @@
                         <label class="form-label">AV</label>
                         <select name="AV" class="form-control">
                             <option value="{{ $club->AV }}">{{ $club->AV }}</option>
+                            <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
                         </select>
                     </div>
 
@@ -70,14 +69,9 @@
                         <label class="form-label">CE</label>
                         <select name="CE" class="form-control">
                             <option value="{{ $club->CE }}">{{ $club->CE }}</option>
-                            <option value="1">1</option>
+                            <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
                         </select>
                     </div>
 
@@ -85,13 +79,9 @@
                         <label class="form-label">AR</label>
                         <select name="AR" class="form-control">
                             <option value="{{ $club->AR }}">{{ $club->AR }}</option>
+                            <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
                         </select>
                     </div>
 
@@ -99,19 +89,15 @@
                         <label class="form-label">RP</label>
                         <select name="RP" class="form-control">
                             <option value="{{ $club->RP }}">{{ $club->RP }}</option>
+                            <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
                         </select>
                     </div>
 
 
-                    <button type="submit" class="btn validate fs-1 shadow none" style="margin-top: 20px"><i
-                            class="fas fa-check"></i></button>
+                    <button type="submit" class="btn validate fs-4 bg-success text-white shadow none" style="margin-top: 20px"><i
+                            class="fas fa-check">Sauvegarder</i></button>
                 </div>
             </form>
         </div>

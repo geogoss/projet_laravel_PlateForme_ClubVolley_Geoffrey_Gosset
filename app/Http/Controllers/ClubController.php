@@ -43,17 +43,17 @@ class ClubController extends Controller
             'nom' => 'required',
             'ville' => 'required',
             'pays' => 'required',
-            // 'AV' => 'required | integer',
-            // 'AR' => 'required | integer',
-            // 'CE' => 'required | integer',
-            // 'RP' => 'required | integer',
+            'AV' => 'required | integer',
+            'AR' => 'required | integer',
+            'CE' => 'required | integer',
+            'RP' => 'required | integer',
         ]);
         $club = new Club();
         $club->nom = $request->nom;
         $club->ville = $request->ville;
         $club->pays = $request->pays;
         $club->continent = $request->continent;
-        // $club->nombre = $request->AV + $request-> AR + $request-> CE + $request-> RP;
+        $club->nombre = $request->AV + $request-> AR + $request-> CE + $request-> RP;
         $club->nombre=$request->nombre;
         $club->AV = $request->AV;
         $club->AR = $request->AR;
@@ -103,21 +103,20 @@ class ClubController extends Controller
             'CE' => 'required | integer',
             'RP' => 'required | integer',
         ]);
-        $club = new Club();
+
         $club->nom = $request->nom;
         $club->ville = $request->ville;
         $club->pays = $request->pays;
+        $club->continent = $request->continent;
         // $club->nombre = $request->AV + $request-> AR + $request-> CE + $request-> RP;
         $club->nombre = $request->nombre;
         $club->AV = $request->AV;
         $club->AR = $request->AR;
         $club->CE = $request->CE;
         $club->RP = $request->RP;
-        $club->created_at = now();
-        $club->updated_at = now();
         $club->save();
 
-        return redirect()->route('club.index')->with('message', 'Vous avez modifié une équipe');
+        return redirect('/club/'.$club->id.'/edit')->with('info', 'Vous avez modifié une équipe');
     }
 
     /**
