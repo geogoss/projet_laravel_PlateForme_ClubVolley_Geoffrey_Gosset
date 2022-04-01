@@ -42,6 +42,7 @@
                 <input type="text" name="pays" class="form-control" id="exampleInputEmail1"
                     aria-describedby="emailHelp">
             </div>
+
             <label for="" class="form-label">Rôle</label>
             <select name="role_id" class="form-select mb-3" aria-label="Default select example">
                 <option selected>Selectionne le rôle</option>
@@ -49,6 +50,7 @@
                     <option value={{ $role->id }}>{{ $role->nom }}</option>
                 @endforeach
             </select>
+
             <label for="" class="form-label">Club</label>
             <select name="club_id" class="form-select mb-3" aria-label="Default select example">
                 <option selected>Selectionne le club</option>
