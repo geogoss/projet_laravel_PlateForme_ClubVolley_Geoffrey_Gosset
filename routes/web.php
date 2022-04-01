@@ -55,7 +55,7 @@ Route::get('/', function () {
 
 
     //  pays joueurs = pays équipe
-
+     
 
     return view('welcome', compact('players', 'clubs', 'noClub', 'noClubRandom', 'avecClub', 'avecClubRandom', 'europeClub', 'noEuropeClub', 'femme', 'homme' ));
 });

@@ -11,7 +11,7 @@
             <p><span class="fs-3">email : </span> {{$player->email}} </p>
             <p><span class="fs-3">genre : </span> {{$player->genre}} </p>
             <p><span class="fs-3">pays : </span> {{$player->pays}} </p>
-            <p><span class="fs-3">Rôle : </span> {{$player->role}} </p>
+            <p><span class="fs-3">Rôle : </span> {{$player->role->nom}} </p>
             <div class="d-flex">
                 <a href="/player/{{$player->id}}/edit " class="btn btn-success mx-2">Edit</a>
                 <form action="/player/{{$player->id}}" method="POST" >

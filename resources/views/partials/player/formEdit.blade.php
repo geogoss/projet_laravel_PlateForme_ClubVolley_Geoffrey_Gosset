@@ -9,8 +9,8 @@
             @method('PUT')
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nom</label>
-                <input type="text" name="nom" value="{{ $player->nom }} " class="form-control" id="exampleInputEmail1"
-                    aria-describedby="emailHelp">
+                <input type="text" name="nom" value="{{ $player->nom }} " class="form-control"
+                    id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Prénom</label>
@@ -42,28 +42,34 @@
                 <input type="text" name="pays" value="{{ $player->pays }} " class="form-control"
                     id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Rôle</label>
-                <input type="text" name="role" value="{{ $player->role }} " class="form-control"
-                    id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
+
+            <label for="exampleInputEmail2" class="form-label">Rôle</label>
+            <select name="role_id" class="form-select mb-3" aria-label="Default select example" id="exampleInputEmail2">
+                <option selected>Selectionne le role</option>
+                @foreach ($roles as $role)
+                    <option value={{ $role->id }} @if ($role->nom == $role->nom) ? selected : null @endif>
+                        {{ $role->nom }} </option>
+                @endforeach
+            </select>
+
+            <label for="" class="form-label">Club</label>
             <select name="club_id" class="form-select mb-3" aria-label="Default select example">
                 <option selected>Selectionne le club</option>
                 @foreach ($clubs as $club)
-                    {{-- <option value={{ $club->nom }} @if ($club->nom == $club->nom) ? selected : null @endif>
-                        {{ $club->nom }} </option> --}}
-                    <option value={{ $club->id }}>{{ $club->nom }}</option>
+                    <option value={{ $club->id }} @if ($club->nom == $club->nom) ? selected : null @endif>
+                        {{ $club->nom }} </option>
                 @endforeach
             </select>
+
+            <label for="" class="form-label">Photo</label>
             <select name="photo_id" class="form-select" aria-label="Default select example">
                 <option selected>Selectionne la photo</option>
                 @foreach ($photos as $photo)
-                    {{-- <option value={{ $photo->nom }} @if ($photo->nom == $photo->nom) ? selected : null @endif>
-                        {{ $photo->nom }} </option> --}}
-
-                    <option value={{ $photo->id }}>{{ $photo->src }}</option>
+                    <option value={{ $photo->id }} @if ($photo->src == $photo->src) ? selected : null @endif>
+                        {{ $photo->src }} </option>
                 @endforeach
             </select>
+
             <button type="submit" class="btn btn-info mt-3">Modifier</button>
         </form>
     </div>

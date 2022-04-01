@@ -7,7 +7,9 @@ use App\Http\Requests\StorePlayerRequest;
 use App\Http\Requests\UpdatePlayerRequest;
 use App\Models\Club;
 use App\Models\Photo;
+use App\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PlayerController extends Controller
 {
@@ -30,9 +32,10 @@ class PlayerController extends Controller
      */
     public function create()
     {
+        $roles = Role::all();
         $clubs = Club::all();
         $photos = Photo::all();
-        return view('pages.createPlayer', compact('clubs', 'photos'));
+        return view('pages.createPlayer', compact('clubs', 'photos', 'roles'));
     }
 
     /**
@@ -83,9 +86,10 @@ class PlayerController extends Controller
      */
     public function edit(Player $player)
     {
+        $roles = Role::all();
         $clubs = Club::all();
         $photos = Photo::all();
-        return view('pages.editPlayer', compact('player', 'clubs', 'photos'));
+        return view('pages.editPlayer', compact('player', 'clubs', 'photos', 'roles'));
     }
 
     /**
@@ -104,14 +108,14 @@ class PlayerController extends Controller
         $player->email = $request->email;
         $player->genre = $request->genre;
         $player->pays = $request->pays;
-        $player->role = $request->role;
-        $player->role = $request->role;
+        $player->role_id = $request->role_id;
+        
         if ($request->club_id == "null") {
             $player->club_id = null;
         } else {
             $player->club_id = $request->equipe_id;
         }
-
+        
         $player->photo_id = $request->photo_id;
         $player->save();
         return redirect('/player/'.$player->id.'/edit')->with('info', 'Info joueur modifiées');
