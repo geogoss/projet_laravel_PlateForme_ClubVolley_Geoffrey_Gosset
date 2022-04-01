@@ -42,17 +42,21 @@
                 <input type="text" name="pays" class="form-control" id="exampleInputEmail1"
                     aria-describedby="emailHelp">
             </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Rôle</label>
-                <input type="text" name="role" class="form-control" id="exampleInputEmail1"
-                    aria-describedby="emailHelp">
-            </div>
+            <label for="" class="form-label">Rôle</label>
+            <select name="role_id" class="form-select mb-3" aria-label="Default select example">
+                <option selected>Selectionne le rôle</option>
+                @foreach ($roles as $role)
+                    <option value={{ $role->id }}>{{ $role->nom }}</option>
+                @endforeach
+            </select>
+            <label for="" class="form-label">Club</label>
             <select name="club_id" class="form-select mb-3" aria-label="Default select example">
                 <option selected>Selectionne le club</option>
                 @foreach ($clubs as $club)
                     <option value={{ $club->id }}>{{ $club->nom }}</option>
                 @endforeach
             </select>
+            <label for="" class="form-label">Photo</label>
             <select name="photo_id" class="form-select" aria-label="Default select example">
                 <option selected>Selectionne la photo</option>
                 @foreach ($photos as $photo)
