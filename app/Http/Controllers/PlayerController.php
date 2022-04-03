@@ -120,10 +120,11 @@ class PlayerController extends Controller
      */
     public function edit(Player $player)
     {
+        $leclub = Club::find('id');
         $roles = Role::all();
         $clubs = Club::all();
         $photos = Photo::all();
-        return view('pages.editPlayer', compact('player', 'clubs', 'photos', 'roles'));
+        return view('pages.editPlayer', compact('player', 'clubs', 'photos', 'roles', 'leclub'));
     }
 
     /**
@@ -136,96 +137,133 @@ class PlayerController extends Controller
     public function update(UpdatePlayerRequest $request, Player $player)
     {
 
-        $equipeActuelle = Club::find($player->club_id);
-        $equipeDepart = Club::find($request->club_id);
-        $occupe = $equipeDepart->AV + $equipeDepart->CE + $equipeDepart->AR + $equipeDepart->RP;
+        $clubOld = Club::find($player->club_id);
+        $clubNew = Club::find($request->club_id);
+        $occupe = $clubNew->AV + $clubNew->CE + $clubNew->AR + $clubNew->RP;
 
         //verifie si on change le role du joueur
         if ($player->role_id != $request->role_id) {
             // -1 dans le post dans l'equipe qu'il etait
             switch ($player->role_id) {
+
                 case 1:
-                    $equipeActuelle->AV-=1;
-                    $equipeActuelle->save();
+                    if ($player->club_id != null) {
+                        $clubOld->AV-=1;
+                        $clubOld->save();
+                    }
+
                     break;
                 case 2:
-                    $equipeActuelle->CE-=1;
-                    $equipeActuelle->save();
+                    if ($player->club_id != null) {
+                        $clubOld->AR-=1;
+                        $clubOld->save();
+                    }
                     break;
                 case 3:
-                    $equipeActuelle->AR-=1;
-                    $equipeActuelle->save();            
+                    if ($player->club_id != null) {
+                        $clubOld->CE-=1;
+                        $clubOld->save();
+                    }            
                     break;
                 case 4:
-                    $equipeActuelle->RP-=1;
-                    $equipeActuelle->save();
+                    if ($player->club_id != null) {
+                        $clubOld->RP-=1;
+                        $clubOld->save();
+                    }
                     break;
             }
+
             //rajouter +1 dans le nv role dans son new equipe/son equipe actuelle
             switch ($request->role_id) {
                 case 1:
-                    $equipeDepart->AV+=1;
-                    $equipeDepart->save();
+                    if ($player->club_id != null) {
+                        $clubNew->AV+=1;
+                        $clubNew->save();
+                    }
                     break;
                 case 2:
-                    $equipeDepart->CE+=1;
-                    $equipeDepart->save();
+                    if ($player->club_id != null) {
+                        $clubNew->AR+=1;
+                        $clubNew->save();
+                    }
                     break;
                 case 3:
-                    $equipeDepart->AR+=1;
-                    $equipeDepart->save();            
+                    if ($player->club_id != null) {
+                        $clubNew->CE+=1;
+                        $clubNew->save();
+                    }           
                     break;
                 case 4:
-                    $equipeDepart->RP+=1;
-                    $equipeDepart->save();
+                    if ($player->club_id != null) {
+                        $clubNew->RP+=1;
+                        $clubNew->save();
+                    }
                     break;
             }
         // si le role est le meme, on rentre dans le else
-        } else {   
-            //switch -1 pour le post de l'equipe d'ou il vient
-            switch ($player->role_id) {
-                case 1:
-                    $equipeActuelle->AV-=1;
-                    $equipeActuelle->save();
-                    break;
-                case 2:
-                    $equipeActuelle->CE-=1;
-                    $equipeActuelle->save();
-                    break;
-                case 3:
-                    $equipeActuelle->AR-=1;
-                    $equipeActuelle->save();            
-                    break;
-                case 4:
-                    $equipeActuelle->RP-=1;
-                    $equipeActuelle->save();
-                    break;
-            }     
-            //switch +1 pour le post dans l'equipe ou il part          
-            switch ($request->role_id) {
-                case 1:
-                    $equipeDepart->ATT+=1;
-                    $equipeDepart->save();
-                    break;
-                case 2:
-                    $equipeDepart->CT+=1;
-                    $equipeDepart->save();
-                    break;
-                case 3:
-                    $equipeDepart->DC+=1;
-                    $equipeDepart->save();            
-                    break;
-                case 4:
-                    $equipeDepart->RP+=1;
-                    $equipeDepart->save();
-                    break;
-            }
-        }
+        } 
+        // else {   
+        //     //switch -1 pour le post de l'equipe d'ou il vient
+        //     switch ($player->role_id) {
+        //         case 1:
+        //             $clubOld->AV-=1;
+        //             $clubOld->save();
+        //             break;
+        //         case 2:
+        //             $clubOld->AR-=1;
+        //             $clubOld->save();
+        //             break;
+        //         case 3:
+        //             $clubOld->CE-=1;
+        //             $clubOld->save();            
+        //             break;
+        //         case 4:
+        //             $clubOld->RP-=1;
+        //             $clubOld->save();
+        //             break;
+        //     }     
+        //     //switch +1 pour le post dans l'equipe ou il part          
+        //     switch ($request->role_id) {
+        //         case 1:
+        //             $clubNew->AV+=1;
+        //             $clubNew->save();
+        //             break;
+        //         case 2:
+        //             $clubNew->AR+=1;
+        //             $clubNew->save();
+        //             break;
+        //         case 3:
+        //             $clubNew->CE+=1;
+        //             $clubNew->save();            
+        //             break;
+        //         case 4:
+        //             $clubNew->RP+=1;
+        //             $clubNew->save();
+        //             break;
+        //     }
+        // }
 
         //notre logique de base avec crud classique 
-        if ($occupe >= $equipeDepart->nombre) {
-            return redirect()->back()->with('warning', $equipeDepart->nom . ' : complet, veuillez choisir une autre equipe');
-        } else {
+        if ($occupe >= $clubNew->nombre) {
+            return redirect()->back()->with('warning', $clubNew->nom . ' : complet, veuillez choisir une autre equipe');
+        } 
+        if ($clubNew->AV >= 2) {
+            return redirect()->back()->with('warning',   'complet, veuillez choisir un autre role');
+
+        }
+        if ($clubNew->AR >= 2) {
+            return redirect()->back()->with('warning',  'complet, veuillez choisir un autre role');
+
+        }
+        if ($clubNew->CE >= 2) {
+            return redirect()->back()->with('warning', 'complet, veuillez choisir un autre role');
+
+        }
+        if ($clubNew->RP >= 2) {
+            return redirect()->back()->with('warning',  'complet, veuillez choisir un autre role');
+
+        }
+        else {
     
             $player->nom = $request->nom;
             $player->prenom = $request->prenom;
@@ -239,7 +277,7 @@ class PlayerController extends Controller
             if ($request->club_id == "null") {
                 $player->club_id = null;
             } else {
-                $player->club_id = $request->equipe_id;
+                $player->club_id = $request->club_id;
             }
             
             $player->photo_id = $request->photo_id;
@@ -258,6 +296,28 @@ class PlayerController extends Controller
      */
     public function destroy(Player $player)
     {
+
+        //delete au niveau du nombre de joueurs dans l'équipe
+        $club = Club::find($player->club_id);
+        switch ($player->role_id) {
+            case 1:
+                $club->AV-=1;
+                $club->save();
+                break;
+            case 2:
+                $club->AR-=1;
+                $club->save();
+                break;
+            case 3:
+                $club->CE-=1;
+                $club->save();            
+                break;
+            case 4:
+                $club->RP-=1;
+                $club->save();
+                break;
+        }
+
         $personnes = array('aicha.jpg', 'alexe.jpg', 'alice.jpg', 'barbara.jpg', 'benja.jpg', 'bernadette.jpg', 'bibou.jpg', 'bruno.jpg', 'cathy.jpg', 'charles.jpg', 'didier.jpg', 'esteban.jpg', 'farid.jpg', 'ines.jpg', 'jean.jpg', 'jef.jpg', 'jenny.jpg', 'jimy.jpg', 'joelle.jpg', 'julie.jpg', 'kevin.jpg', 'kim.jpg', 'kimy.jpg', 'leila.jpg', 'magali.jpg', 'marc.jpg', 'margaux.jpg', 'mathieu.jpg', 'michele.jpg', 'nadia.jpg', 'nathalie.jpg', 'pierre.jpg', 'sophie.jpg', 'steph.jpg', 'stephane.jpg', 'steve.jpg', 'tom.jpg', 'victor.jpg');
         if (!(in_array($player->photo_id, $personnes) )) {
             Storage::delete('public/'.$player->photo->src);
