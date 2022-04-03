@@ -2,7 +2,7 @@
 <section class="d-flex flex-wrap my-3">
     @foreach ($players as $player)
         <div class="card mx-auto m-2 " style="width: 18rem;">
-            <img src="{{ asset('/storage/' . $player->photo->src) }} " class="card-img-top" alt="...">
+            <img src="{{ asset('/storage/'. $player->photo->src) }} " class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{ $player->nom }} </h5>
                 <h5 class="card-title">{{ $player->prenom }} </h5>

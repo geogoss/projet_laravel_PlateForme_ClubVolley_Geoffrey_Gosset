@@ -17,7 +17,9 @@ class ClubController extends Controller
     public function index()
     {
         $clubs = Club::paginate(6);
-        return view ('partials.team.afficheTeam', compact('clubs'));
+        $club = Club::all();
+        $occupe = $club->AV + $club->CE + $club->AR + $club->RP;
+        return view ('partials.team.afficheTeam', compact('clubs', 'club', 'occupe'));
     }
 
     /**

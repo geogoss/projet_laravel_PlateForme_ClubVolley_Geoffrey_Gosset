@@ -19,7 +19,7 @@
                                 <div class="row text-center">
                                     <div class="col-xs-4">
                                         <div class="mb-3">
-                                            <h4>{{ $club->nombre }}/8</h4>
+                                            <h4>{{ $occupe }}/8</h4>
                                             <p>Joueurs</p>
                                         </div>
                                         <div class="d-flex justify-content-around">
