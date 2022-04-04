@@ -16,10 +16,10 @@ class ClubController extends Controller
      */
     public function index()
     {
-        $clubs = Club::paginate(6);
-        $clubTot = Club::all();
-        $occupe = $clubTot->AV + $clubTot->CE + $clubTot->AR + $clubTot->RP;
-        return view ('partials.team.afficheTeam', compact('clubs', 'clubTot', 'occupe'));
+        // $clubs = Club::paginate(6);
+        // $clubTot = Club::all();
+        // $occupe = $clubTot->AV + $clubTot->CE + $clubTot->AR + $clubTot->RP;
+        // return view ('partials.team.afficheTeam', compact('clubs', 'clubTot', 'occupe'));
     }
 
     /**
