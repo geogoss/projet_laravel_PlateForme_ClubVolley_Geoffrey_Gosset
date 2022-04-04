@@ -25,7 +25,7 @@ class PlayerSeeder extends Seeder
                'genre' => 'Homme',
                'pays' => 'Belgique',
                'role_id' => 1,
-               'club_id' => null,
+               'club_id' => 1,
                'photo_id' => 1 
             ],
             [
@@ -37,7 +37,7 @@ class PlayerSeeder extends Seeder
                'genre' => 'Homme',
                'pays' => 'Belgique',
                'role_id' => 1,
-               'club_id' => null,
+               'club_id' => 1,
                'photo_id' => 2 
             ],
             [
@@ -49,7 +49,7 @@ class PlayerSeeder extends Seeder
                'genre' => 'Homme',
                'pays' => 'Belgique',
                'role_id' => 2,
-               'club_id' => null,
+               'club_id' => 1,
                'photo_id' => 3 
             ],
             [
@@ -121,7 +121,7 @@ class PlayerSeeder extends Seeder
                'genre' => 'Homme',
                'pays' => 'Algérie',
                'role_id' => 4,
-               'club_id' => 1,
+               'club_id' => null,
                'photo_id' => 9 
             ],
             [
@@ -169,7 +169,7 @@ class PlayerSeeder extends Seeder
                'genre' => 'Homme',
                'pays' => 'Argentine',
                'role_id' => 2,
-               'club_id' => 2,
+               'club_id' => null,
                'photo_id' => 13 
             ],
             [
@@ -193,7 +193,7 @@ class PlayerSeeder extends Seeder
                'genre' => 'Femme',
                'pays' => 'Perou',
                'role_id' => 3,
-               'club_id' => 2,
+               'club_id' => null,
                'photo_id' => 15 
             ],
             [
@@ -217,7 +217,7 @@ class PlayerSeeder extends Seeder
                'genre' => 'Femme',
                'pays' => 'Bresil',
                'role_id' => 4,
-               'club_id' => 2,
+               'club_id' => null,
                'photo_id' => 17 
             ],
             [
@@ -228,7 +228,7 @@ class PlayerSeeder extends Seeder
                'email' => 'mado@gmail.com',
                'genre' => 'Femme',
                'pays' => 'Pakistan',
-               'role_id' => 4,
+               'role_id' => 1,
                'club_id' => null,
                'photo_id' => 18 
             ],
@@ -240,7 +240,7 @@ class PlayerSeeder extends Seeder
                'email' => 'maryse@gmail.com',
                'genre' => 'Femme',
                'pays' => 'Belgique',
-               'role_id' => 1,
+               'role_id' => 2,
                'club_id' => null,
                'photo_id' => 19 
             ],
@@ -325,7 +325,7 @@ class PlayerSeeder extends Seeder
                'genre' => 'Homme',
                'pays' => 'Bresil',
                'role_id' => 4,
-               'club_id' => 3,
+               'club_id' => null,
                'photo_id' => 26 
             ],
             [
@@ -385,7 +385,7 @@ class PlayerSeeder extends Seeder
                'genre' => 'Femme',
                'pays' => 'Hollande',
                'role_id' => 2,
-               'club_id' => 4,
+               'club_id' => null,
                'photo_id' => 31 
             ],
             [
@@ -409,7 +409,7 @@ class PlayerSeeder extends Seeder
                'genre' => 'Femme',
                'pays' => 'France',
                'role_id' => 3,
-               'club_id' => 4,
+               'club_id' => null,
                'photo_id' => 33 
             ],
             [
@@ -421,7 +421,7 @@ class PlayerSeeder extends Seeder
                'genre' => 'Homme',
                'pays' => 'Australie',
                'role_id' => 4,
-               'club_id' => 4,
+               'club_id' => null,
                'photo_id' => 34 
             ],
             [
@@ -433,7 +433,7 @@ class PlayerSeeder extends Seeder
                'genre' => 'Homme',
                'pays' => 'Bresil',
                'role_id' => 4,
-               'club_id' => 4,
+               'club_id' => null,
                'photo_id' => 35 
             ],
             [

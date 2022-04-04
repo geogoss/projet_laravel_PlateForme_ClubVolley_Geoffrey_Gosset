@@ -7,7 +7,8 @@
         </div>
         <div class="container">
             <div class="row">
-                @foreach ($clubs as $club)
+                @foreach ($clubTot as $club)
+                {{dd($club->AV)}}
                     <div class="col-4">
                         <div class="card my-5" style="width: 18rem;">
                             <img src="https://static01.nicematin.com/media/npo/1440w/2018/08/40677393.jpg"
@@ -19,7 +20,7 @@
                                 <div class="row text-center">
                                     <div class="col-xs-4">
                                         <div class="mb-3">
-                                            <h4>{{ $occupe }}/8</h4>
+                                            <h4>{{ $club->nombre }}/8</h4>
                                             <p>Joueurs</p>
                                         </div>
                                         <div class="d-flex justify-content-around">
@@ -67,8 +68,6 @@
                     </div>
                 @endforeach
             </div>
-        </div>
-        </div>
         </div>
     </main>
 @endsection

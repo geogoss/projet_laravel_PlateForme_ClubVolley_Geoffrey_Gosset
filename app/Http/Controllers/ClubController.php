@@ -17,9 +17,9 @@ class ClubController extends Controller
     public function index()
     {
         $clubs = Club::paginate(6);
-        $club = Club::all();
-        $occupe = $club->AV + $club->CE + $club->AR + $club->RP;
-        return view ('partials.team.afficheTeam', compact('clubs', 'club', 'occupe'));
+        $clubTot = Club::all();
+        $occupe = $clubTot->AV + $clubTot->CE + $clubTot->AR + $clubTot->RP;
+        return view ('partials.team.afficheTeam', compact('clubs', 'clubTot', 'occupe'));
     }
 
     /**
@@ -110,7 +110,7 @@ class ClubController extends Controller
         $club->ville = $request->ville;
         $club->pays = $request->pays;
         $club->continent = $request->continent;
-        // $club->nombre = $request->AV + $request-> AR + $request-> CE + $request-> RP;
+        $club->nombre = $request->AV + $request-> AR + $request-> CE + $request-> RP;
         $club->nombre = $request->nombre;
         $club->AV = $request->AV;
         $club->AR = $request->AR;
