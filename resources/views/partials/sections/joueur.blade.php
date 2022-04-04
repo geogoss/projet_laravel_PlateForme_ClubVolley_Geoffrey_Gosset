@@ -16,7 +16,7 @@
                      <th scope="row">{{ $player->id }} </th>
                      <td>{{ $player->nom }} </td>
                      <td>{{ $player->prenom }} </td>
-                     <td>{{ $player->club_id }} </td>
+                     <td>{{ $player->club->nom }} </td>
                  </tr>
              @endforeach
 
