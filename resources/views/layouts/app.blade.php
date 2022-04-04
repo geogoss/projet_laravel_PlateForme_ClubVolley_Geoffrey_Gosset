@@ -20,7 +20,7 @@
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                         <a class="nav-link" href="/player">Joueur</a>
                         <a class="nav-link" href="/player/create">Créer Joueur</a>
-                        <a class="nav-link" href="/club">Club</a>
+                        <a class="nav-link" href="/team">Club</a>
                         <a class="nav-link" href="/club/create">Créer un club</a>
                         <a class="nav-link" href="/photo">Photo</a>
                         <a class="nav-link" href="/photo/create">Importer une photo</a>

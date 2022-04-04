@@ -89,7 +89,7 @@ class PlayerController extends Controller
         if ($request->club_id == "null") {
             $store->club_id = null;
         } else {
-            $store->club_id = $request->equipe_id;
+            $store->club_id = $request->club_id;
         }
 
         $store->photo_id = $request->photo_id;
@@ -299,23 +299,26 @@ class PlayerController extends Controller
 
         //delete au niveau du nombre de joueurs dans l'équipe
         $club = Club::find($player->club_id);
-        switch ($player->role_id) {
-            case 1:
-                $club->AV-=1;
-                $club->save();
-                break;
-            case 2:
-                $club->AR-=1;
-                $club->save();
-                break;
-            case 3:
-                $club->CE-=1;
-                $club->save();            
-                break;
-            case 4:
-                $club->RP-=1;
-                $club->save();
-                break;
+        if ($club) {
+          
+            switch ($player->role_id) {
+                case 1:
+                    $club->AV-=1;
+                    $club->save();
+                    break;
+                case 2:
+                    $club->AR-=1;
+                    $club->save();
+                    break;
+                case 3:
+                    $club->CE-=1;
+                    $club->save();            
+                    break;
+                case 4:
+                    $club->RP-=1;
+                    $club->save();
+                    break;
+            }
         }
 
         $personnes = array('aicha.jpg', 'alexe.jpg', 'alice.jpg', 'barbara.jpg', 'benja.jpg', 'bernadette.jpg', 'bibou.jpg', 'bruno.jpg', 'cathy.jpg', 'charles.jpg', 'didier.jpg', 'esteban.jpg', 'farid.jpg', 'ines.jpg', 'jean.jpg', 'jef.jpg', 'jenny.jpg', 'jimy.jpg', 'joelle.jpg', 'julie.jpg', 'kevin.jpg', 'kim.jpg', 'kimy.jpg', 'leila.jpg', 'magali.jpg', 'marc.jpg', 'margaux.jpg', 'mathieu.jpg', 'michele.jpg', 'nadia.jpg', 'nathalie.jpg', 'pierre.jpg', 'sophie.jpg', 'steph.jpg', 'stephane.jpg', 'steve.jpg', 'tom.jpg', 'victor.jpg');

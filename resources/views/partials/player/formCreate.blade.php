@@ -58,6 +58,7 @@
                     <option value={{ $club->id }}>{{ $club->nom }}</option>
                 @endforeach
             </select>
+            
             <label for="" class="form-label">Photo</label>
             <select name="photo_id" class="form-select" aria-label="Default select example">
                 <option selected>Selectionne la photo</option>

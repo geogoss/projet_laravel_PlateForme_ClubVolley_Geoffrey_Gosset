@@ -8,7 +8,6 @@
         <div class="container">
             <div class="row">
                 @foreach ($clubTot as $club)
-                {{dd($club->AV)}}
                     <div class="col-4">
                         <div class="card my-5" style="width: 18rem;">
                             <img src="https://static01.nicematin.com/media/npo/1440w/2018/08/40677393.jpg"
