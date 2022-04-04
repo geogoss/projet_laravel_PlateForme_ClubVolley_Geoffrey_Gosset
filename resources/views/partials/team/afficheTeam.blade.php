@@ -7,7 +7,7 @@
         </div>
         <div class="container">
             <div class="row">
-                @foreach ($clubs as $club)
+                @foreach ($clubTot as $club)
                     <div class="col-4">
                         <div class="card my-5" style="width: 18rem;">
                             <img src="https://static01.nicematin.com/media/npo/1440w/2018/08/40677393.jpg"
@@ -67,8 +67,6 @@
                     </div>
                 @endforeach
             </div>
-        </div>
-        </div>
         </div>
     </main>
 @endsection

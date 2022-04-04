@@ -16,7 +16,11 @@
                      <th scope="row">{{ $item->id }} </th>
                      <td>{{ $item->nom }} </td>
                      <td>{{ $item->prenom }} </td>
-                     <td>{{$item->club_id}} </td>
+                     @if ($item->club_id != null)
+                         <td>{{ $item->club->nom }} </td>
+                     @else
+                         <td>Pas de club </td>
+                     @endif
 
                  </tr>
              @endforeach

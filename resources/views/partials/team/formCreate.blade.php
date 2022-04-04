@@ -43,6 +43,7 @@
                 <div class="mb-3">
                     <label class="form-label">Nombre de joueur : </label>
                     <select name="nombre" class="form-control">
+                        <option value="0">0/7</option>
                         <option value="1">1/7</option>
                         <option value="2">2/7</option>
                         <option value="3">3/7</option>
@@ -58,56 +59,39 @@
                 <div class="mb-3">
                     <label class="form-label">AV</label>
                     <select name="AV" class="form-control">
+                        <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
                     </select>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">CE</label>
                     <select name="CE" class="form-control">
+                        <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
                     </select>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">AR</label>
                     <select name="AR" class="form-control">
+                        <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
                     </select>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">RP</label>
                     <select name="RP" class="form-control">
+                        <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
+                        <option value="3">3</option>   
                     </select>
                 </div>
-
-
                 <button type="submit" class="btn btn-success" style="margin-top: 20px"><i
                         class="fa fa-check"></i>Créer</button>
             </div>

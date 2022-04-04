@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('genre');
             $table->string('pays');
-            $table->foreignId('role_id')->nullable()->constrained('roles');
+            $table->foreignId('role_id')->nullable()->constrained();
             $table->foreignId('club_id')->nullable()->constrained();
             $table->foreignId('photo_id')->constrained()->onDelete('cascade');
             $table->timestamps();

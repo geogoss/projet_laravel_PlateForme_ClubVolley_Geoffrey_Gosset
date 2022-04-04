@@ -55,7 +55,7 @@ Route::get('/', function () {
 
 
     //  pays joueurs = pays équipe
-
+     
 
     return view('welcome', compact('players', 'clubs', 'noClub', 'noClubRandom', 'avecClub', 'avecClubRandom', 'europeClub', 'noEuropeClub', 'femme', 'homme' ));
 });
@@ -66,5 +66,10 @@ Route::resource('player', PlayerController::class);
 Route::resource('club', ClubController::class);
 Route::resource('photo', PhotoController::class);
 
-
+Route::get('/team', function() {
+    $clubs = Club::paginate(6);
+    $clubTot = Club::all();
+    // $occupe = $clubTot["AV"] + $clubTot["AR"] + $clubTot["CE"] + $clubTot["RP"];
+    return view('partials.team.afficheTeam', compact('clubs', 'clubTot'));
+});
 
